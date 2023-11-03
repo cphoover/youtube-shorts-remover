@@ -1,4 +1,4 @@
-# Remove Shorts Chrome Extension
+# Youtube Shorts Remover Chrome Extension
 
 <img src="images/shorts-remove.png" alt="Remove Shorts Logo" width="400"/>
 
