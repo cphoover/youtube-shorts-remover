@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Shorts Remover",
+  "version": "1.0",
+  "description": "Removes YouTube Shorts from the UI and redirects Shorts links to the YouTube homepage.",
+  "permissions": ["webNavigation", "tabs"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "icons": {
+    "16": "images/shorts-remove-icon16.png",
+    "48": "images/shorts-remove-icon48.png",
+    "128": "images/shorts-remove-icon128.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
