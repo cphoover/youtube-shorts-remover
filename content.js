@@ -1,4 +1,5 @@
 function removeUIElements() {
+
   // Remove the Shorts button from the sidebar
   const shortsButton = document.querySelector(
     'ytd-mini-guide-entry-renderer[aria-label="Shorts"]'
@@ -13,6 +14,10 @@ function removeUIElements() {
     // Add specific condition to target Shorts carousel if needed
     carousel.remove();
   });
+
+  
+  const otherShortsButtons = document.querySelectorAll('[title="Shorts"]');
+  otherShortsButtons.forEach(node => node.remove());
 }
 
 // Remove the UI elements on initial page load
