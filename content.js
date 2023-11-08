@@ -1,5 +1,16 @@
-function removeUIElements() {
+const styleTag = document.createElement("style");
+const styleContents = document.createTextNode(`
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+ytd-rich-section-renderer,
+ytd-reel-shelf-renderer ,
+[title="Shorts"]  {
+     display: none; 
+    }
+`);
+styleTag.appendChild(styleContents);
+document.body.prepend(styleTag);
 
+function removeUIElements() {
   // Remove the Shorts button from the sidebar
   const shortsButton = document.querySelector(
     'ytd-mini-guide-entry-renderer[aria-label="Shorts"]'
@@ -9,15 +20,16 @@ function removeUIElements() {
   }
 
   // Remove the Shorts carousel drawer
-  const carousels = document.querySelectorAll("ytd-rich-section-renderer");
+  const carousels = document.querySelectorAll(
+    "ytd-rich-section-renderer, ytd-reel-shelf-renderer"
+  );
   carousels.forEach((carousel) => {
     // Add specific condition to target Shorts carousel if needed
     carousel.remove();
   });
 
-  
   const otherShortsButtons = document.querySelectorAll('[title="Shorts"]');
-  otherShortsButtons.forEach(node => node.remove());
+  otherShortsButtons.forEach((node) => node.remove());
 }
 
 // Remove the UI elements on initial page load
